@@ -1,5 +1,14 @@
 # Component Based UI
 
+## Deploy:
+
+- [Sandbox Link](https://codesandbox.io/s/resty-dyyvb?file=/src/App.js)
+- [Deploy Link](https://csb-dyyvb.netlify.app)
+
+## UML
+
+![uml base](img/lab26UML.PNG)
+
 ## Lab Requirements
 
 Students will be creating and styling a Counter application. Look for the following attributes
@@ -28,4 +37,4 @@ Students will be creating and styling a Counter application. Look for the follow
 
 ### Lab Assistance Notes
 
-- The first and most important part of the lab assignment is to draw a process diagram of the starter code and state as events happen. Once the students understand that, they can move on.
+- The first and most important part of the lab assignment is to draw a process diagram of the starter code and state as events hap pen. Once the students understand that, they can move on.
