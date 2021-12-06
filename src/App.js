@@ -1,47 +1,33 @@
-import React from "react";
-
+import React, { useState } from "react";
 import "./app.scss";
 
-// Let's talk about using index.js and some other name in the component folder
-// There's pros and cons for each way of doing this ...
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Form from "./components/form/Form";
 import Results from "./components/results/Results";
+import { BeatLoader } from "react-spinners";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
+export default function App() {
+  const [data, setData] = useState(null);
+  const [requestParams, setRequestParams] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  callApi = (requestParams) => {
-    // mock output
-    const data = {
-      count: 2,
-      results: [
-        { name: "fake thing 1", url: "http://fakethings.com/1" },
-        { name: "fake thing 2", url: "http://fakethings.com/2" },
-      ],
-    };
-    this.setState({ data, requestParams });
+  const callApi = (formData, resData) => {
+    setData(resData);
+    setRequestParams(formData);
   };
-
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
-        <Footer />
-      </React.Fragment>
-    );
+  function handleLoad(load) {
+    setLoading(load);
   }
-}
 
-export default App;
+  return (
+    <React.Fragment>
+      <Header />
+      <div>Request Method: {requestParams.method}</div>
+      <div>URL: {requestParams.url}</div>
+      <Form handleApiCall={callApi} handleLoading={handleLoad} />
+      {loading ? <BeatLoader loading /> : <Results data={data} />}
+      <Footer />
+    </React.Fragment>
+  );
+}
