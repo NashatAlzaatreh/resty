@@ -8,15 +8,14 @@ export default function Form(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      props.handleLoading(true);
       const res = await fetch(`${e.target.url.value}`);
       const data = await res.json();
       const formData = {
         method: method,
         url: e.target.url.value,
       };
-      props.handleLoading(false);
-      props.handleApiCall(formData, data.results);
+
+      props.handleApiCall(formData, data);
     } catch (e) {
       console.error(e);
     }
@@ -35,7 +34,7 @@ export default function Form(props) {
         <label>
           <span>URL: </span>
           <input id="formInput" name="url" type="text" />
-          <button data-testid="goButton" type="submit">
+          <button data-testid="goooooButton" type="submit">
             GO!
           </button>
         </label>
