@@ -1,4 +1,5 @@
 import React from "react";
+import "./history.scss";
 
 function History(props) {
   return (
@@ -6,9 +7,15 @@ function History(props) {
       <h3>History:</h3>
       {props.history.map((elm) => {
         return (
-          <span>
-            {elm.method.toUpperCase()} {elm.url} <br />
-          </span>
+          <div>
+            <ul>
+              <li>
+                <span id="elm">{elm.method}</span>
+                <button class="url">{elm.url}</button>
+              </li>
+            </ul>
+            {/* {elm.method.toUpperCase()} {elm.url} <br /> */}
+          </div>
         );
       })}
     </div>

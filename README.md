@@ -1,9 +1,9 @@
-# Component Based UI
+# Component Based UI, Advanced State with Reducers
 
 ## Deploy:
 
 - [Sandbox Link](https://codesandbox.io/s/resty-dyyvb?file=/src/App.js)
-- [Deploy Link](https://csb-dyyvb.netlify.app)
+- [Deploy Link](https://app-resty.netlify.app/)
 
 ## UML
 
