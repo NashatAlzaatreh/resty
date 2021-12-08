@@ -4,8 +4,10 @@ import "./form.scss";
 export default function Form(props) {
   const [method, setMethod] = useState("GET");
   const [element, setElement] = useState(null);
+  const [body, setBody] = useState("");
 
   async function handleSubmit(e) {
+    // props.setLoading(true);
     e.preventDefault();
     try {
       const res = await fetch(`${e.target.url.value}`);
@@ -34,15 +36,15 @@ export default function Form(props) {
         <label>
           <span>URL: </span>
           <input id="formInput" name="url" type="text" />
-          <button data-testid="goooooButton" type="submit">
+          <button data-testid="butt" type="submit">
             GO!
           </button>
         </label>
         <label className="methods">
-          <span id="get" onClick={handleChange}>
+          <span id="get" data-testid="getbutt" onClick={handleChange}>
             GET
           </span>
-          <span id="post" onClick={handleChange}>
+          <span id="post" data-testid="postButt" onClick={handleChange}>
             POST
           </span>
           <span id="put" onClick={handleChange}>
