@@ -10,8 +10,8 @@ function historyReducer(state = initialState, action) {
   switch (type) {
     case "ADD-TO-HISTORY":
       const history = [...state.history, payload.history];
-      requestParams = payload.history;
-      data = payload.resData;
+      const requestParams = payload.history;
+      const data = payload.resData;
       return { history, requestParams, data };
     default:
       return state;
@@ -24,9 +24,10 @@ function historyAction(history, resData) {
     payload: { history, resData },
   };
 }
+export { initialState, historyAction, historyReducer };
 
-module.exports = {
-  initialState,
-  historyReducer,
-  historyAction,
-};
+// module.exports = {
+//   initialState,
+//   historyReducer,
+//   historyAction,
+// };
